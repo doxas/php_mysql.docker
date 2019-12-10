@@ -1,0 +1,24 @@
+$light:#f3f3f3;
+$dark:#333;
+
+html, body {
+    background-color: $dark;
+    color: $light;
+    font-family: 'Noto Sans JP', sans-serif;
+    width: 100%;
+    height: 100%;
+}
+
+#globalwrap {
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#globalwrap p {
+    font-size: 16vw;
+}
+

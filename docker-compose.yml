@@ -1,0 +1,30 @@
+version: '3.7'
+
+services:
+    php:
+        build:
+            context: .
+            dockerfile: ./php/Dockerfile
+        env_file: ./env/.mysql
+        environment:
+            DATABASE_HOST: mysql
+        ports:
+            - 8888:80
+        depends_on:
+            - mysql
+        volumes:
+            - ./public:/var/www/html/public
+            - ./php/php.ini:/usr/local/etc/php/php.ini
+    mysql:
+        image: mysql:5.7.28
+        env_file: ./env/.mysql
+        ports:
+            - 3306:3306
+        volumes:
+            - ./mysql/data:/var/lib/mysql
+            - ./mysql/initial.sql:/docker-entrypoint-initdb.d/initial.sql
+    mailcatcher:
+        image: schickling/mailcatcher
+        ports:
+            - 1080:1080
+            - 1025:1025

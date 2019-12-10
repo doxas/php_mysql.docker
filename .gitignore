@@ -1,0 +1,8 @@
+*.crt
+*.cer
+*.key
+*.txt
+
+/node_modules
+/mysql/data
+/phpmyadmin/data
