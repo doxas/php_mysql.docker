@@ -34,5 +34,5 @@
 
     phpinfo();
 ?>
-    <script type="text/javascript" src="./js/main-6e04e282ea1c7265be52.js"></script><script type="text/javascript" src="./js/script-6e04e282ea1c7265be52.js"></script></body>
+    <script type="text/javascript" src="./js/main-2eebbe26b63374646402.js"></script><script type="text/javascript" src="./js/script-2eebbe26b63374646402.js"></script></body>
 </html>
