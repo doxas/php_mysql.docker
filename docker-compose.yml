@@ -9,11 +9,11 @@ services:
         environment:
             DATABASE_HOST: mysql
         ports:
-            - 8888:80
+            - 80:80
         depends_on:
             - mysql
         volumes:
-            - ./public:/var/www/html/public
+            - ./public:/var/www/html
             - ./php/php.ini:/usr/local/etc/php/php.ini
     mysql:
         image: mysql:5.7.28
@@ -23,6 +23,17 @@ services:
         volumes:
             - ./mysql/data:/var/lib/mysql
             - ./mysql/initial.sql:/docker-entrypoint-initdb.d/initial.sql
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin:4.8
+        env_file: ./env/.phpmyadmin
+        environment:
+            PMA_HOST: mysql
+        depends_on:
+            - mysql
+        ports:
+            - 55555:80
+        volumes:
+            - ./phpmyadmin/data:/sessions
     mailcatcher:
         image: schickling/mailcatcher
         ports:
