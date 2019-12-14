@@ -39,3 +39,10 @@ services:
         ports:
             - 1080:1080
             - 1025:1025
+    composer:
+        image: composer:1.9.0
+        command: 'composer require lcobucci/jwt:3.3'
+        volumes:
+          - ./public:/app
+        depends_on:
+            - php
