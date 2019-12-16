@@ -82,11 +82,21 @@ module.exports = (env, argv) => {
                     'js',
                     '!css',
                     '!resource',
+                    '!lib',
+                    '!vendor',
+                    '!composer.json',
+                    '!composer.lock',
                 ],
             }),
             new HtmlWebpackPlugin({
+                inject: true,
                 filename: 'index.php',
                 template: './index.php',
+            }),
+            new HtmlWebpackPlugin({
+                inject: false,
+                filename: 'lib/lib.php',
+                template: './lib/lib.php',
             }),
         ],
     };
