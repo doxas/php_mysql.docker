@@ -13,12 +13,19 @@
         </div>
 <?php
 include_once(dirname(__FILE__).'/lib/lib.php');
+include_once(dirname(__FILE__).'/lib/jwt-auth.php');
 
 echo '<pre class="log">';
 var_dump(getFromMySQL());
 echo '</pre>';
 
+echo exec('whoami');
+
+echo '<pre class="jwt">';
+var_dump(getJwt());
+echo '</pre>';
+
 phpinfo();
 ?>
-    <script type="text/javascript" src="./js/main-e14dae74457197e18917.js"></script><script type="text/javascript" src="./js/script-e14dae74457197e18917.js"></script></body>
+    <script type="text/javascript" src="./js/main-2b6d23c3142bdca92eae.js"></script><script type="text/javascript" src="./js/script-2b6d23c3142bdca92eae.js"></script></body>
 </html>
