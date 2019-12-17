@@ -20,14 +20,28 @@ function getClaims(/* $timeOffset */){
     return $claims;
 }
 
-function getJwt(){
+function encodeJwt(){
     $claims = getClaims();
     $path = realpath(dirname(__FILE__).'/../keys/id_rsa_jwt.pem');
     $private_key = file_get_contents($path);
     $jwt = JWT::encode($claims, $private_key, 'RS256');
-    return json_encode(array(
-        'message' => 'Success.',
-        'jwt' => $jwt
-    ));
+    return $jwt;
+}
+
+/**
+ * @param {string} jwt - JWT 文字列
+ */
+function decodeJwt($jwt){
+    $claims;
+    try {
+        $public_key = file_get_contents(dirname(__FILE__).'/../keys/id_rsa_jwt.pub');
+        $claims = JWT::decode($jwt, $public_key, array('RS256'));
+        return $claims;
+    }catch(Exception $e){
+        $message = $e->getMessage();
+        return json_encode(array(
+            'message' => $message
+        ));
+    }
 }
 

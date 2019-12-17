@@ -16,13 +16,18 @@ include_once(dirname(__FILE__).'/lib/lib.php');
 include_once(dirname(__FILE__).'/lib/jwt-auth.php');
 
 echo '<pre class="log">';
-var_dump(getFromMySQL());
+$fromMySql = getFromMySQL();
+var_dump($fromMySql);
 echo '</pre>';
 
-echo exec('whoami');
+echo '<pre class="jwt">';
+$jwt = encodeJwt();
+var_dump($jwt);
+echo '</pre>';
 
 echo '<pre class="jwt">';
-var_dump(getJwt());
+$decodedJwt = decodeJwt($jwt);
+var_dump($decodedJwt);
 echo '</pre>';
 
 phpinfo();
