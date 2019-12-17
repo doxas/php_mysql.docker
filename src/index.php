@@ -13,9 +13,16 @@
         </div>
 <?php
 include_once(dirname(__FILE__).'/lib/lib.php');
+include_once(dirname(__FILE__).'/lib/jwt-auth.php');
 
 echo '<pre class="log">';
 var_dump(getFromMySQL());
+echo '</pre>';
+
+echo exec('whoami');
+
+echo '<pre class="jwt">';
+var_dump(getJwt());
 echo '</pre>';
 
 phpinfo();
