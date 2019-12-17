@@ -83,6 +83,7 @@ module.exports = (env, argv) => {
                     '!css',
                     '!resource',
                     '!lib',
+                    '!keys',
                     '!vendor',
                     '!composer.json',
                     '!composer.lock',
@@ -97,6 +98,11 @@ module.exports = (env, argv) => {
                 inject: false,
                 filename: 'lib/lib.php',
                 template: './lib/lib.php',
+            }),
+            new HtmlWebpackPlugin({
+                inject: false,
+                filename: 'lib/jwt-auth.php',
+                template: './lib/jwt-auth.php',
             }),
         ],
     };
