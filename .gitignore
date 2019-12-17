@@ -6,6 +6,7 @@
 /node_modules
 /mysql/data
 /phpmyadmin/data
+/public/keys
 /public/vendor
 /public/composer.json
 /public/composer.lock
