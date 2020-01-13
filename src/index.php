@@ -12,6 +12,9 @@
             <p>php_mysql</p>
         </div>
 <?php
+
+ini_set('display_errors', 'On');
+
 include_once(dirname(__FILE__).'/lib/lib.php');
 include_once(dirname(__FILE__).'/lib/jwt-auth.php');
 
